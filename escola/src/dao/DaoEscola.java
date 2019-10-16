@@ -90,7 +90,7 @@ public class DaoEscola {
 }
     public static Escola consultar(int primaryKey) {
         //editar o SQL conforme a entidade
-        String sql = "SELECT codigo, nome, nr_aunos, nr_funicionarios, area, abertura FROM produto WHERE codigo=?";
+        String sql = "SELECT codigo, nome, nr_alunos, nr_funicionarios, area, abertura FROM escola WHERE codigo=?";
         PreparedStatement ps;
         try {
             ps = conexao.Conexao.getConexao().prepareStatement(sql);
@@ -101,8 +101,8 @@ public class DaoEscola {
                 //definir um set para cada atributo da entidade, cuidado com o tipo
                 objeto.setCodigo(rs.getInt("codigo"));
                 objeto.setNome(rs.getString("nome"));
-                objeto.setNr_funicionarios(rs.getInt("nr_funicionarios"));
                 objeto.setNr_alunos(rs.getInt("nr_alunos"));
+                objeto.setNr_funicionarios(rs.getInt("nr_funicionarios"));
                 objeto.setArea(rs.getDouble("area"));
                 objeto.setAbertura(rs.getDate("abertura").toLocalDate());
                 return objeto;//não mexa nesse, ele adiciona o objeto na lista
